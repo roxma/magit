@@ -1137,7 +1137,8 @@ Do not add this to a hook variable."
                   (if (member "--graph" (setq args (remove "++header" args)))
                       (concat "\n" magit-log-revision-headers-format "\n")
                     (concat "\n" magit-log-revision-headers-format "\n"))
-                ""))
+                ;; FIXME need to refine
+                " <%an> %cr"))
       (progn
         (--when-let (--first (string-match "^\\+\\+order=\\(.+\\)$" it) args)
           (setq args (cons (format "--%s-order" (match-string 1 it))
